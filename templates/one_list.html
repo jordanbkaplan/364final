@@ -1,0 +1,8 @@
+<div style="font-size:30px">books in: <strong>{{ lista.name }}</strong></div><br><br>
+{% extends 'base.html' %}
+
+{% block content %}
+{%for book in books %}
+	<li><strong style="font-size:22px; border-bottom: dashed red 2px;">{{ book[0] }}</strong><br><br>description: {{ book[1] }}<br><br> author: {{ book[2] }} <br><br></li>
+{% endfor %}
+{% endblock %}

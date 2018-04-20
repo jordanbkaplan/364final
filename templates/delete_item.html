@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="POST" action="/delete/{{ item_name }}">
+	<p> are you sure you want to delete {{item_name}}</p>
+	{{ form.hidden_tag() }}
+	{{ form.delete() }}
+</form>
+
+<div>
+{% for message in get_flashed_messages() %}
+{{ message }}
+{% endfor %}
+</div>
+
+{% endblock %}

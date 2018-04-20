@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 style="color:red;">Authors in the db</h1>
+
+{%for author in all_authors %}
+
+	<li style="font-size:20px;"><strong>{{ author[0]}}</strong> ----- {{ author[1]}} books in the db</li><br><br>
+{% endfor %}
+
+
+{% endblock %}

@@ -1,0 +1,18 @@
+<h1>My lists</h1>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<ul>
+<h2>{% if num_lists %}{{ num_lists }} lists have been saved{% else %} please save a list into the db <a href="http://localhost:5000/create_list">here</a> {% endif %} </h2>
+{% for list in lists %}
+    <li ><a style="font-size:20px;" href="http://localhost:5000/list/{{ list.id }}">{{ list.name }}</a>
+	<form method="POST" action="/delete/{{ list.name }}">
+    	{{ form.delete() }} 
+    </form>
+    <br>
+    </li>
+{% endfor %}
+</ul>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+<h1>Create a New Book List</h1>
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="GET" action='http://localhost:5000/lists'>
+	{{ form.hidden_tag() }}
+	{{ form.name.label }} {{ form.name() }}
+	{{ form.book_picks.label }} {{ form.book_picks() }}
+	{{ form.submit.label }}{{ form.submit() }}
+</form>
+{% endblock %}
+
+
+
+

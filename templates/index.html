@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Welcome to Read Attack</h1>
+<form method="POST" action="http://localhost:5000/">
+    {{ form.search.label() }}{{ form.search() }}<br>
+   	{{ form.readStatus.label() }}{{ form.readStatus()}}<br>
+    {{ form.submit() }}
+    {{ form.hidden_tag() }}
+</form>
+<div>
+{% for message in get_flashed_messages() %}
+{{ message }}
+{% endfor %}
+</div>
+
+
+{% endblock %}

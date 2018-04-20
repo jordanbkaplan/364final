@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 style="color:red;">Books in the db</h1>
+<h2>{% if num_books %}{{ num_books }}{% else %}0{% endif %} possible books saved. </h2>
+
+{%for book in books %}
+	<li><strong style="font-size:22px; border-bottom: dashed red 2px;">{{ book[0] }}</strong><br><br>description: {{ book[1] }}<br><br> Read Status: {{ book[2] }}
+	<form method="POST" action="/update/{{ book[0] }}">
+	   	{{ form.hidden_tag() }}
+     	{{ form.submit() }}
+    </form>
+    <i>-Author: </i>{{ book[3] }} </li><br><br><br>
+
+{% endfor %}
+
+<div>
+{% for message in get_flashed_messages() %}
+<strong>*** {{ message }} ***</strong>
+</div>
+{% endfor %}
+
+{% endblock %}
